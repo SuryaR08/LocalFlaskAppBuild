@@ -18,4 +18,19 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext (
+                to: 'suryaraja8903@gmail.com',
+                subject: "Jenkins Build Status: ${currentBuild.currentResult}",
+                body: """Build Summary:
+                - Job Name: ${env.JOB_NAME}
+                - Build Number: ${env.BUILD_NUMBER}
+                - Build Status: ${currentBuild.currentResult}
+                - Build URL: ${env.BUILD_URL}
+                """,
+                mimeType: 'text/plain'
+            )
+        }
+    }
 }
