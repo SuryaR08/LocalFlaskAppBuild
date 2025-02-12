@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'file:///C:/Users/surya/Downloads/basic-flask-app'
+                git branch: 'main', url: 'https://github.com/SuryaR08/LocalFlaskAppBuild.git'
             }
         }
 
